@@ -11,11 +11,11 @@ This repository contains code and data for ["ProMQA: Question Answering Dataset 
 
 ProMQA is an evaluation QA dataset for multimodal procedural activity understanding.
 
-![Overview](https://github.com/kimihiroh/timeset/blob/main/docs/overview.pdf)
+![Overview](https://github.com/kimihiroh/promqa/blob/main/docs/overview.png)
 
 Given a recipe (text), a recording (video), and a question (text), the task is to predict an answer (text).
 
-![Formulation](https://github.com/kimihiroh/timeset/blob/main/docs/formulation.pdf)
+![Formulation](https://github.com/kimihiroh/promqa/blob/main/docs/formulation.png)
 
 ## Environment Setup
 
@@ -60,7 +60,7 @@ bash script/benchmark/evaluate.sh \
 
 ## Data Annotation
 
-![Interface](https://github.com/kimihiroh/timeset/blob/main/docs/interface.pdf)
+![Interface](https://github.com/kimihiroh/promqa/blob/main/docs/interface.png)
 
 <!-- ### Procedure
 TBU -->
