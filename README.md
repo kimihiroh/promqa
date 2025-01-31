@@ -30,12 +30,11 @@ pip install -r requirements.txt
 ### Download video data
 1. Follow [CaptainCook4D/downloader](https://github.com/CaptainCook4D/downloader) to download recordings.
     * e.g., `python download_gopro_data.py --resolution4K --output_dir <dirpath_original>`
-2. Segment original recordings & sample frames
+2. Segment original recordings & sample frames & resize
 ```bash
 bash script/preprocess/video.sh \
     <dirpath_original> \
-    <dirpath_preprocessed> \
-    
+    <dirpath_preprocessed>
 ```
 
 ## Benchmarking
@@ -62,12 +61,29 @@ bash script/benchmark/evaluate.sh \
 
 ![Interface](https://github.com/kimihiroh/promqa/blob/main/docs/interface.png)
 
-<!-- ### Procedure
-TBU -->
+### Preprocess
+```bash
+bash script/preprocess/update_annotation.sh
+bash script/preprocess/create_example.sh
+bash script/preprocess/sample.sh
+bash script/preprocess/instruction.sh samples.json samples
+```
+
+### QA Generation
+
+### Human Verification
+
 
 ## ToDo
-* [ ] Add data annotation code (preprocess, QA generation, verification)
-* [ ] Add prediction code for other baselines (unimodal, socratic, open multimodal models)
+* [ ] Add data annotation code
+    * [x] preprocess
+    * [ ] QA generation
+    * [ ] verification
+* [ ] Add prediction code for other baselines
+    * [ ] unimodal
+    * [ ] socratic
+    * [ ] open multimodal models
+* [ ] run all code
 
 ## Citation
 
