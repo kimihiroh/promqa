@@ -3,10 +3,10 @@
 eval "$(conda shell.bash hook)"
 conda activate bridge
 
-filepath_input=$1/samples.json
+filepath_input=./data/preprocess/samples.json
 filepath_template=src/generation/templates.yaml
-dirpath_output=$1
-filepath_graph=$1/all_graphs.json
+dirpath_output=./data/generation/
+filepath_graph=./data/preprocess/all_graphs.json
 dirpath_log=./log/
 
 model_id=gpt-4o-2024-08-06

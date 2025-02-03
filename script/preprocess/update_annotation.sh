@@ -7,7 +7,7 @@ filepath_error=./data/CaptainCook4D/annotations/annotation_json/error_annotation
 filepath_activity=./data/CaptainCook4D/annotations/annotation_json/complete_step_annotations.json
 filepath_step=./data/CaptainCook4D/annotations/annotation_json/activity_idx_step_idx.json
 dirpath_graph=./data/CaptainCook4D/annotations/task_graphs/
-dirpath_output=$1
+dirpath_output=./data/preprocess/
 dirpath_log=./log/
 
 # preprocess error annotation of captaincook4d

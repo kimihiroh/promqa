@@ -7,8 +7,8 @@ current_time=$(date "+%Y%m%d-%H%M%S")
 
 # preprocess videos
 filepath_input=./data/examples.json
-dirpath_original_video=$1
-dirpath_output=$2
+dirpath_original_video=./date/CaptainCook4D/downloader/
+dirpath_output=./data/videos/
 dirpath_log=./log/
 mkdir -p $dirpath_log
 

@@ -1,9 +1,10 @@
 # ProMQA: Question Answering Dataset for Multimodal Procedural Activity Understanding
 
-This repository contains code and data for ["ProMQA: Question Answering Dataset for Multimodal Procedural Activity Understanding" (Hasegawa et al., arXiv 2024)](https://arxiv.org/abs/2410.22211). 
+This repository contains code and data for "ProMQA: Question Answering Dataset for Multimodal Procedural Activity Understanding" (Hasegawa et al., NAACL 2025) [[arXiv](https://arxiv.org/abs/2410.22211)]. 
 
 ## News
 
+* 2025/01/22: This work is accepted to NAACL 2025.
 * 2024/10/29: 401 QA pairs are now available.
 
 
@@ -19,6 +20,8 @@ Given a recipe (text), a recording (video), and a question (text), the task is t
 
 ## Environment Setup
 
+OS: `Ubuntu 24.04.1 LTS x86_64`.
+
 ### Virtual environment
 ```bash
 conda create -y -n promqa python=3.11
@@ -27,14 +30,23 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 pip install -r requirements.txt
 ```
 
+You may need to install the following packages, if you have not:
+```bash
+sudo apt install graphviz ffmpeg parallel
+```
+
 ### Download video data
 1. Follow [CaptainCook4D/downloader](https://github.com/CaptainCook4D/downloader) to download recordings.
-    * e.g., `python download_gopro_data.py --resolution4K --output_dir <dirpath_original>`
-2. Segment original recordings & sample frames & resize
 ```bash
-bash script/preprocess/video.sh \
-    <dirpath_original> \
-    <dirpath_preprocessed>
+cd data
+mkdir -p CaptainCook4D
+git clone git@github.com:CaptainCook4D/downloader.git
+cd downloder
+python download_gopro_data.py --data2d --resolution4K
+```
+2. Segment original recordings & sample frames & resize images
+```bash
+bash script/preprocess/video.sh
 ```
 
 ## Benchmarking
@@ -61,23 +73,39 @@ bash script/benchmark/evaluate.sh \
 
 ![Interface](https://github.com/kimihiroh/promqa/blob/main/docs/interface.png)
 
+### Download CaptainCook4D Annotation
+```bash
+cd data
+mkdir -p CaptainCook4D
+cd CaptainCook4D
+git clone git@github.com:CaptainCook4D/annotations.git
+```
+
 ### Preprocess
 ```bash
 bash script/preprocess/update_annotation.sh
 bash script/preprocess/create_example.sh
 bash script/preprocess/sample.sh
-bash script/preprocess/instruction.sh samples.json samples
+bash script/preprocess/instruction.sh
 ```
 
 ### QA Generation
+```bash
+bash script/generation/run.sh
+```
 
 ### Human Verification
+```bash
+ln -s ./data/videos/ ./src/manual/verification/static/
+bash script/verification/start.sh
+```
 
 
 ## ToDo
+* [x] update path so that everything under this dir
 * [ ] Add data annotation code
     * [x] preprocess
-    * [ ] QA generation
+    * [x] QA generation
     * [ ] verification
 * [ ] Add prediction code for other baselines
     * [ ] unimodal
@@ -85,7 +113,7 @@ bash script/preprocess/instruction.sh samples.json samples
     * [ ] open multimodal models
 * [ ] run all code
 
-## Citation
+## Citation (TBU)
 
 If you find this work helpful in your research, please consider citing our work.
 ```bib

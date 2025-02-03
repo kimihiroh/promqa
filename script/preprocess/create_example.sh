@@ -3,11 +3,11 @@
 eval "$(conda shell.bash hook)"
 conda activate bridge
 
-filepath_input=$1/original_updated.json
-filepath_verbs=$1/error_type_to_verbs.json
+filepath_input=./data/preprocess/original_updated.json
+filepath_verbs=./data/preprocess/error_type_to_verbs.json
 dirpath_graph=./data/CaptainCook4D/annotations/task_graphs/
 filepath_metadata_video=./data/CaptainCook4D/downloader/metadata/download_links.json
-dirpath_output=$1
+dirpath_output=./data/preprocess/
 dirpath_log=./log/
 
 #

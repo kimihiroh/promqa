@@ -3,8 +3,8 @@
 eval "$(conda shell.bash hook)"
 conda activate bridge
 
-filepath_input=$1/all_examples.json
-dirpath_output=$1
+filepath_input=./data/preprocess/all_examples.json
+dirpath_output=./data/preprocess/
 dirpath_log=./log/
 
 python src/preprocess/sample.py \
