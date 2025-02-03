@@ -4,9 +4,9 @@ eval "$(conda shell.bash hook)"
 conda activate bridge
 
 # # preprocess videos, frames, and graphs
-filepath_input=./data/our-video-qa/preprocess/$1
-filepath_graph=./data/our-video-qa/preprocess/all_graphs.json
-dirpath_output=/usr1/data/kimihiro/bridge/$2
+filepath_input=$1/samples.json
+filepath_graph=$1/all_graphs.json
+dirpath_output=$2
 dirpath_log=./log/
 
 python src/preprocess/instruction.py \

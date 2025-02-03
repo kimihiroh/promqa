@@ -6,10 +6,11 @@ conda activate bridge
 current_time=$(date "+%Y%m%d-%H%M%S")
 
 # preprocess videos
-filepath_input=./data/our-video-qa/preprocess/$1
-dirpath_original_video=/usr1/datasets/captain_cook_4d/gopro
-dirpath_output=/usr1/data/kimihiro/bridge/$2
+filepath_input=./data/examples.json
+dirpath_original_video=$1
+dirpath_output=$2
 dirpath_log=./log/
+mkdir -p $dirpath_log
 
 NUM_PROCESS=$(( $(nproc) / 2 ))
 
